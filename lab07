@@ -1,0 +1,58 @@
+class Library{
+    constructor (section,book,manager,opentime,closetime){
+        this.section=section;
+        this.book=book;
+        this.manager=manager;
+        this.opentime=opentime;
+        this.closetime=closetime;
+    }
+    manageLibrary=()=>{
+        console.log(`library manager ${this.manager}`)
+    }
+    issuebooks=()=>{
+        return new Promise(function(myResolve,myReject){
+            setTimeout(function(){
+                myResolve(`issue books JS`);       
+            }, 2000)
+        });
+        myPromise.then((response)=>{
+            console.log(response)
+        })
+    }
+    addnewsection=()=>{
+        console.log(`New Section of books ${this.section}`)
+    }
+    openLibrary=()=>{
+        return new Promise(function(myResolve,myReject){
+            setTimeout(function(){
+                myResolve(`open time 2:00`);       
+            }, 2000)
+        });
+        myPromise.then((response)=>{
+            console.log(response)
+        })
+    }
+    closeLibrary=()=>{
+        return new Promise(function(myResolve,myReject){
+            setTimeout(function(){
+                myResolve(`close time 5:00`);       
+            }, 2000)
+        });
+        myPromise.then((response)=>{
+            console.log(response)
+        })
+    }
+}
+
+async function test(){
+    var lib= new Library('E','JS', 'SHAHZAIB', '2:00', '5:00')
+    lib.manageLibrary()
+    lib.addnewsection()
+    const j= await lib.openLibrary()
+    const k= await lib.closeLibrary()
+    const l= await lib.issuebooks()
+    console.log(l)
+    console.log(j)
+    console.log(k)
+}
+test()
